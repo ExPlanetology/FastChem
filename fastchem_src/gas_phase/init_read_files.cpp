@@ -181,7 +181,9 @@ void GasPhase<double_type>::addMolecule(
       elements[j].molecule_list.push_back(molecules.size()-1);
   }
   else 
-    std::cout << "Stoichiometry of species " << symbol << " incomplete. Neglected!\n";
+    if (options.verbose_level >= 1) {
+      std::cout << "Stoichiometry of species " << symbol << " incomplete. Neglected!\n";
+    }
 }
 
 

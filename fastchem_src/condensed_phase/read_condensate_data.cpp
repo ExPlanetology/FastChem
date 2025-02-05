@@ -195,8 +195,10 @@ void CondensedPhase<double_type>::addCondensate(
     for (size_t i=0; i<species.element_indices.size(); ++i)
       elements[species.element_indices[i]].condensate_list.push_back(condensates.size()-1);
   }
-  else 
-    std::cout << "Stoichometry of species " << symbol << " incomplete. Neglected!\n";
+  else
+    if (options.verbose_level >= 1) {
+      std::cout << "Stoichometry of species " << symbol << " incomplete. Neglected!\n";
+    }
 }
 
 
